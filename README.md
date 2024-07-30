@@ -1,8 +1,7 @@
 <h1 align="center"> Intro HMTML e CSS </h1>
 
 <p align="center">
-Projeto Simples de um site estático. Utilizando grid-template-area.
-
+Projeto Simples de um site estático. 
 </p>
 
 <p align="center">
@@ -29,6 +28,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 💻 Projeto
 
 ## 🔖 Layout
+
+- Mobile
+- Desktop
+- Animações
 
 [Figma](https://figma.com) para acessá-lo.
 
