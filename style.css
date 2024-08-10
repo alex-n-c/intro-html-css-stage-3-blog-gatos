@@ -9,23 +9,14 @@
 :root{
     font-size: 62.5%;
 
-    --color-base-blue-2: #387e96;
-    --color-base-blue-3: #065e7c;
-    --color-base-white: #ffffff;
+    --color-base-blue-2: hsl(195, 46%, 40%);
+    --color-base-blue-3: hsl(195, 91%, 25%);
+    --color-base-white: hsl(0, 0%, 100%);
 
     --text-color: #121214;
 
     --text-base: 1.6rem;
-    --text-sm: 0.875rem;
-
-
-    /*Usando HSL para definir as cores da pagina
-    --hue: 100;
-    --color-base-white: hsl(0, 0%, 100%);
-    --color-base-gray-100: hsl(0, 0%, 96%);
-    --color-base-gray-300: hsl(var(--hue), 60%, 60%);
-    --color-base-gray-500: hsl(0, 0%, 24%);
-    --color-base-gray-900: hsl(var(--hue), 60%, 50%);*/    
+    --text-sm: 0.875rem; 
 }
 
 html, body, input{
@@ -43,6 +34,7 @@ h1, h2{
 
 h3{
     font-size: 1.8rem;
+    line-height: 100%;
 }
 
 p{
@@ -54,53 +46,38 @@ body{
     background-color: var(--color-base-white);
 }
 
-#app{
-    display: grid;
-    grid-template-areas: "header"
-                          "main"
-                          "aside"
-                          "footer";    
-    height: 100vh;        
-}
+/* .container{
+    padding-inline: 1.2rem;
+    max-width: calc(24rem + 1.2rem);
+    margin-inline: auto;
+} */
 
-#app header{
-    grid-area: header;    
-}
-
-#app main{
-    grid-area: main;
-    padding-top: 7.2rem;    
-}
-
-#app aside{
-    grid-area: aside;
-}
-
-footer{
-    grid-area: footer;
-}
-
-.container{
-    padding: 1.2rem 2.8rem;
-    width: min(112rem, 100%);
-    margin-top: 1.8rem;
+img{   
+    width: 100%;        
+    height: auto;
 }
 
 header{
-    display: flex;
-    gap: 2.6rem;
-    align-items: center; 
-    height: 7.2rem;
-    padding: 0 2.6rem;    
     background-color: var(--color-base-blue-3);    
-
-    position: fixed;
-    top: 0;
-    width: 100%;    
+    padding:  1.2rem 2.8rem;    
+    min-width: 38.2rem;
 }
 
-header form{
-    flex: content;
+.header-container{    
+    margin-inline: auto;   
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    gap: 2.6rem;
+}
+
+.header-container a{
+    line-height: 0;
+}
+
+.header-container a img{
+    height: 4.2rem;    
+    width: 4.2rem;    
 }
 
 .input-field label{
@@ -111,7 +88,7 @@ header form{
 }
 
 .input-field input{
-    width: 100%;
+    min-width: 18.7rem;    
     padding: 1.2rem 1.4rem;
     font-weight: 600;
     border: none;
@@ -136,14 +113,38 @@ header form{
     width: 4.0rem;    
 }
 
-main > div{
+/* .scroll{
+    overflow-y: scroll;
+} */
+
+.main-container{
+    padding-inline: 2.2rem;
+    margin-inline: auto;
     display: flex;
     flex-direction: column;
-    gap: 3.0rem;
+    min-width: 38.2rem;
 }
 
-main > img{
-    width: 100%;
+.main-container h1{
+    margin-top: 3.0rem;
+}
+
+.main-container p{
+    margin-top: 3.0rem;
+}
+
+.main-container button{
+   all: unset;
+   transition: all 250ms;
+}
+
+.main-container button:hover{
+    transform: scale(1.05);   
+}
+
+.aside-container{
+    padding-inline: 2.2rem;    
+    margin-top: 3.0rem;
 }
 
 .suggestion{
@@ -154,13 +155,13 @@ main > img{
 }
 
 .item-suggestion{
-    display: flex;
-    gap: 1.6rem;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    gap: 1.6rem;    
 }
 
 .item-suggestion img{
-    width: 15.0rem;
+    /* width: 15.0rem; */
     height: 8.4rem;    
 }
 
@@ -170,10 +171,11 @@ main > img{
 }
 
 .details p{
-    margin-top: 1px;
+    margin-top: 1.5rem;
 }
 
 footer{ 
+    margin-top: 3.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -188,29 +190,93 @@ footer p{
     font-weight: 500;    
 }
 
-@media (min-width: 40em){
+@media (min-width: 43em){
+    img{
+        border-radius: 0.5rem;
+    }
     #app{
-        grid-template-rows: auto 1fr auto;
-        grid-template-columns: 3fr 1.5fr;
-
+        display: grid;
         grid-template-areas: "header header"
                              "main aside"
                              "footer footer";
-        
+        height: 100vh; 
+        /* gap: 3.4rem;  */
+        /* padding: 4.4rem 10.9rem;  */
+        row-gap: 4.4rem;
+        column-gap: 3.4rem;
+        box-sizing: border-box;  
+    }  
+    
+    .header-container, .main-container, .aside-container{
+        /* margin-inline: initial; */
+        /* padding-inline: initial; */
+        max-width: initial;
+        padding: initial;
+        margin: initial;
+    }
+
+    .header-container form{
+        flex: 1;       
+    }
+
+    .header-container form input{
+        width: 100%;
+    }
+
+    .header-container{
+        max-width: 150rem;
+        margin-inline: auto;
+    }   
+   
+    .main-container{
+        max-width: 80.3rem; 
+        margin-left: auto;
+            
+    }
+
+    .aside-container{
+        max-width: 38.4rem;
+    }
+
+    #app header{
+        grid-area: header;    
     }    
 
     #app main{
+        grid-area: main;
         padding-bottom: 7.2rem;
     }
 
     #app aside{
+        grid-area: aside;
         padding-bottom: 7.2rem;
     }
 
     #app footer{ 
-        position: fixed;
-        bottom: 0;
+        grid-area: footer;        
+        /* position: fixed; */
+        /* bottom: 0; */
         width: 100%;  
     }
 
+}
+
+header{
+    animation: fromTop 600ms 420ms backwards;
+}
+
+main, aside{
+    animation: fromBottom 800ms 200ms backwards;
+}
+
+@keyframes fromTop {
+    from{
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes fromBottom {
+    from{
+        transform: translateY(100%);
+    }
 }
